@@ -5,20 +5,21 @@ class Details extends Component {
  
   static propTypes = {
     item: PropTypes.shape({
-      date: PropTypes.string.isRequired,
+      data: PropTypes.string.isRequired,
     }).isRequired,
   }
-
 
 	render() {
 		const { item } = this.props;
 
 		return (
 			<div>
-				<p> {item.date} </p>
-				<p> {item.start} </p>
-				<p> {item.end} </p>
-				<p> {item.reason} </p>
+				<p> Date de fermeture : {item.date} </p>
+				<p> De : {item.start} </p>
+				<p> Jusqu'à : {item.end} </p>
+				<p> Raison de la fermeture : {item.reason} </p>
+				<br/>
+				<a href={item.link}> Voir sur le site</a>
 			</div>
 		)
 	}

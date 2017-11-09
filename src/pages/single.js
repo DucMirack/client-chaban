@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import Details from '../components/details'
+import Header from '../components/header'
 import { ProgressBar } from 'react-materialize';
-import { Route, Link } from 'react-router-dom';
-
-const Test = () => (
-  <div> RENDER PAGE 1</div>
-)
 
 class SinglePage extends Component {
   
@@ -13,7 +9,7 @@ class SinglePage extends Component {
     super(props);
 
     this.state = {
-      data: { date: null },
+      data: { data: null },
     }
   }
 
@@ -41,6 +37,7 @@ class SinglePage extends Component {
           <ProgressBar />
         ) : (
           <div>
+            <Header item={data} />
             <Details item={data} />
           </div>
         )}

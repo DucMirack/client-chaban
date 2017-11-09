@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
 } from 'react-router-dom';
 
 
@@ -21,6 +20,11 @@ class App extends Component {
         <div>
           <Route path="/:id" component={SinglePage} />
           <Route exact path="/" component={HomePage} />
+          <Route path='/everywhere' children={(props) => {
+            // props.location = { pathname: '/everywhere', ... }
+            return <div>You are everywhere</div>
+          }}/>
+
         </div>
       </Router>
     );
