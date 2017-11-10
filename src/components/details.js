@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Card } from 'react-materialize';
 
 class Details extends Component {
  
@@ -13,14 +14,16 @@ class Details extends Component {
 		const { item } = this.props;
 
 		return (
-			<div>
-				<p> Date de fermeture : {item.date} </p>
-				<p> De : {item.start} </p>
-				<p> Jusqu'à : {item.end} </p>
-				<p> Raison de la fermeture : {item.reason} </p>
-				<br/>
-				<a href={item.link}> Voir sur le site</a>
-			</div>
+				<Card className='blue-grey darken-1' actions={<a href={item.link}>Plus d'infos ici</a>}>
+					Date de fermeture : {item.date}
+					<br/>
+					De : {item.start}
+					<br/>
+					Jusqu'à : {item.end}
+					<br/>
+					Raison de la fermeture : {item.reason}
+					<br/>
+				</Card>
 		)
 	}
 }

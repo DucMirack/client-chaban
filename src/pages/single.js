@@ -9,7 +9,7 @@ class SinglePage extends Component {
     super(props);
 
     this.state = {
-      data: { data: null },
+      data: null ,
     }
   }
 
@@ -32,15 +32,6 @@ class SinglePage extends Component {
           });
         });
   }
-	// componentDidMount() {
-	// 	fetch(`http://localhost:1337/${this.props.match.params.id}`)
- //      .then((res) => res.json())
- //      .then((json) => {
- //        this.setState({
- //          data: json,
- //        });
- //      });
-	// }
 
   render() {
 
