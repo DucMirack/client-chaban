@@ -18,12 +18,8 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route path="/:id" component={SinglePage} />
           <Route exact path="/" component={HomePage} />
-          <Route path='/everywhere' children={(props) => {
-            // props.location = { pathname: '/everywhere', ... }
-            return <div>You are everywhere</div>
-          }}/>
+          <Route path="/:id" component={SinglePage} />
 
         </div>
       </Router>

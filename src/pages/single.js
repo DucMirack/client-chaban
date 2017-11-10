@@ -13,15 +13,34 @@ class SinglePage extends Component {
     }
   }
 
-	componentDidMount() {
-		fetch(`http://localhost:1337/${this.props.match.params.id}`)
-      .then((res) => res.json())
-      .then((json) => {
-        this.setState({
-          data: json,
+  componentDidMount() {
+      this.getData(this.props.match.params.id);  
+  }
+
+  componentWillReceiveProps(nextProps) {
+     if(this.props.match.params.id !== nextProps.match.params.id) {
+         this.getData(nextProps.match.params.id);
+     }
+  }
+
+  getData = (param) => {
+     fetch(`http://localhost:1337/${param}`)
+        .then((res) => res.json())
+        .then((json) => {
+          this.setState({
+            data: json,
+          });
         });
-      });
-	}
+  }
+	// componentDidMount() {
+	// 	fetch(`http://localhost:1337/${this.props.match.params.id}`)
+ //      .then((res) => res.json())
+ //      .then((json) => {
+ //        this.setState({
+ //          data: json,
+ //        });
+ //      });
+	// }
 
   render() {
 
@@ -37,7 +56,7 @@ class SinglePage extends Component {
           <ProgressBar />
         ) : (
           <div>
-            <Header item={data} />
+            <Header id={this.props.match.params.id} />
             <Details item={data} />
           </div>
         )}
